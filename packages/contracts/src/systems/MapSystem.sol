@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0;
 import { System } from "@latticexyz/world/src/System.sol";
-import { Encounter, EncounterData, Encounterable, EncounterTrigger, MapConfig, Monster, Movable, Obstruction, Player, Position } from "../codegen/Tables.sol";
+import { Encounter, EncounterData, Encounterable, EncounterTrigger, MapConfig, Monster, Movable, Obstruction, Player, Position, Score } from "../codegen/Tables.sol";
 import { MonsterType } from "../codegen/Types.sol";
 import { addressToEntityKey } from "../addressToEntityKey.sol";
 import { positionToEntityKey } from "../positionToEntityKey.sol";
@@ -23,6 +23,7 @@ contract MapSystem is System {
     Position.set(player, x, y);
     Movable.set(player, true);
     Encounterable.set(player, true);
+    Score.set(player, 0);
   }
 
   function move(uint32 x, uint32 y) public {

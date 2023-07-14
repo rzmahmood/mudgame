@@ -50,5 +50,6 @@ export default mudConfig({
         y: "uint32",
       },
     },
+    Score: "int256",
   },
 });
