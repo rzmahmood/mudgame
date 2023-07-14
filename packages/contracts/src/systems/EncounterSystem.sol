@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0;
 import { System } from "@latticexyz/world/src/System.sol";
-import { Player, Encounter, EncounterData, MonsterCatchAttempt, OwnedBy, Monster } from "../codegen/Tables.sol";
+import { Player, Encounter, EncounterData, MonsterCatchAttempt, OwnedBy, Monster, Score } from "../codegen/Tables.sol";
 import { MonsterCatchResult } from "../codegen/Types.sol";
 import { addressToEntityKey } from "../addressToEntityKey.sol";
 
@@ -21,6 +21,7 @@ contract EncounterSystem is System {
       // 50% chance to catch monster
       MonsterCatchAttempt.emitEphemeral(player, MonsterCatchResult.Caught);
       OwnedBy.set(encounter.monster, player);
+      Score.set(player, Score.get(player) + 1);
       Encounter.deleteRecord(player);
     } else if (encounter.catchAttempts >= 2) {
       // Missed 2 times, monster escapes

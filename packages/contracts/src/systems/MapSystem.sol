@@ -23,7 +23,7 @@ contract MapSystem is System {
     Position.set(player, x, y);
     Movable.set(player, true);
     Encounterable.set(player, true);
-    Score.set(player, 123);
+    Score.set(player, 0);
   }
 
   function move(uint32 x, uint32 y) public {
