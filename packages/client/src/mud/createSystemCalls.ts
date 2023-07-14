@@ -8,7 +8,7 @@ export type SystemCalls = ReturnType<typeof createSystemCalls>;
  
 export function createSystemCalls(
   { playerEntity, singletonEntity, worldSend, txReduced$ }: SetupNetworkResult,
-  { Encounter, MapConfig, MonsterCatchAttempt, Obstruction, Player, Position }: ClientComponents
+  { Encounter, MapConfig, MonsterCatchAttempt, Obstruction, Player, Position, Score }: ClientComponents
 ) {
   const wrapPosition = (x: number, y: number) => {
     const mapConfig = getComponentValue(MapConfig, singletonEntity);
@@ -59,6 +59,8 @@ export function createSystemCalls(
     }
  
     const playerPosition = getComponentValue(Position, playerEntity);
+    const score = getComponentValue(Score, playerEntity);
+    console.log("SCORE: ", score)
     if (!playerPosition) {
       console.warn("cannot moveBy without a player position, not yet spawned?");
       return;

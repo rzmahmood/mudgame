@@ -175,5 +175,20 @@ export function defineContractComponents(world: World) {
         }
       );
     })(),
+    Score: (() => {
+      const tableId = new TableId("", "Score");
+      return defineComponent(
+        world,
+        {
+          value: RecsType.BigInt,
+        },
+        {
+          metadata: {
+            contractId: tableId.toHexString(),
+            tableId: tableId.toString(),
+          },
+        }
+      );
+    })(),
   };
 }
