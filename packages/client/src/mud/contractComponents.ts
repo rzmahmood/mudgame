@@ -190,5 +190,20 @@ export function defineContractComponents(world: World) {
         }
       );
     })(),
+    NFT: (() => {
+      const tableId = new TableId("", "NFT");
+      return defineComponent(
+        world,
+        {
+          value: RecsType.BigInt,
+        },
+        {
+          metadata: {
+            contractId: tableId.toHexString(),
+            tableId: tableId.toString(),
+          },
+        }
+      );
+    })(),
   };
 }

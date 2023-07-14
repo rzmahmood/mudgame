@@ -51,5 +51,6 @@ export default mudConfig({
       },
     },
     Score: "int256",
+    NFT: "uint256",
   },
 });

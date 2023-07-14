@@ -15,3 +15,4 @@ import { OwnedBy, OwnedByTableId } from "./tables/OwnedBy.sol";
 import { Player, PlayerTableId } from "./tables/Player.sol";
 import { Position, PositionTableId } from "./tables/Position.sol";
 import { Score, ScoreTableId } from "./tables/Score.sol";
+import { NFT, NFTTableId } from "./tables/NFT.sol";
